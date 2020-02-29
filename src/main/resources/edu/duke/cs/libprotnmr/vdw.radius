@@ -1,0 +1,26 @@
+
+# These radii values are adapted from the Richardson' Probe paper
+# http://kinemage.biochem.duke.edu/php/downlode.php?filename=/downloads/PDFs/1999WordJMB285a.pdf
+# The goal of these radii is to provide a parameter for a conservative steric filter.
+#	H                        1.17
+#	H (aromatic)             1.0
+#	H (polar)                1.0
+#	C                        1.75
+#	C (carbonyl)             1.65
+#	N                        1.55
+#	O                        1.4
+#	P                        1.8
+#	S                        1.8
+# Therefore, for ambiguous assignments, the minimum radius was used to err on the
+# side of having too few clashes.
+
+C.3	1.65
+C.ar	1.65
+H	1.0
+N.2	1.55
+N.4	1.55
+N.am	1.55
+O.2	1.4
+O.3	1.4
+O.co2	1.4
+S.3	1.8

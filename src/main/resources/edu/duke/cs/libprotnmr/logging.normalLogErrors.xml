@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration>
+
+    <Appenders>
+        <Console name="stdout" target="SYSTEM_OUT">
+            <PatternLayout>
+                <pattern>%m%n</pattern>
+            </PatternLayout>
+        </Console>
+        <File name="log" filename="errors.log">
+            <PatternLayout>
+                <pattern>[%-5p %c{1}.%M() line %L] %m%n</pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="stdout"/>
+            <AppenderRef ref="log" level="error"/>
+        </Root>
+    </Loggers>
+
+</Configuration>

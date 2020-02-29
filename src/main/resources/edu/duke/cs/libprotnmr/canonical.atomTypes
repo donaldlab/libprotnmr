@@ -1,0 +1,247 @@
+
+ALA
+	CB	C.3
+	HB1	H
+	HB2	H
+	HB3	H
+
+ASP
+	CB	C.3
+	HB2	H
+	HB3	H
+	CG	C.3
+	OD1	O.co2
+	OD2	O.co2
+
+ASN
+	CB	C.3
+	HB2	H
+	HB3	H
+	CG	C.3
+	OD1	O.2
+	ND2	N.am
+	HD21	H
+	HD22	H
+
+ARG
+	CB	C.3
+	HB2	H
+	HB3	H
+	CG	C.3
+	HG2	H
+	HG3	H
+	CD	C.3
+	HD2	H
+	HD3	H
+	NE	N.2
+	HE	H
+	CZ	C.ar
+	NH1	N.2
+	HH11	H
+	HH12	H
+	NH2	N.2
+	HH21	H
+	HH22	H
+	
+CYS
+	CB	C.3
+	HB2	H
+	HB3	H
+	SG	???
+	HG	???
+
+GLN
+	CB	C.3
+	HB2	H
+	HB3	H
+	CG	C.3
+	HG2	H
+	HG3	H
+	CD	C.3
+	OE1	O.2
+	NE2	N.am
+	HE21	H
+	HE22	H
+
+GLU
+	CB	C.3
+	HB2	H
+	HB3	H
+	CG	C.3
+	HG2	H
+	HG3	H
+	CD	C.3
+	OE1	O.co2
+	OE2	O.co2
+
+GLY
+	HA2	H
+	HA3	H
+
+HIS
+	CB	C.3
+	HB2	H
+	HB3	H
+	CG	???
+	ND1	???
+	HD1	???
+	CE1	???
+	HE1	???
+	NE2	???
+	HE2	???
+	CD2	???
+	HD2	???
+
+ILE
+	CB	C.3
+	HB	H
+	CG2	C.3
+	HG21	H
+	HG22	H
+	HG23	H
+	CG1	C.3
+	HG12	H
+	HG13	H
+	CD1	C.3
+	HD11	H
+	HD12	H
+	HD13	H
+
+LEU
+	CB	C.3
+	HB2	H
+	HB3	H
+	CG	C.3
+	HG	H
+	CD1	C.3
+	HD11	H
+	HD12	H
+	HD13	H
+	CD2	C.3
+	HD21	H
+	HD22	H
+	HD23	H
+
+LYS
+	CB	C.3
+	HB2	H
+	HB3	H
+	CG	C.3
+	HG2	H
+	HG3	H
+	CD	C.3
+	HD2	H
+	HD3	H
+	CE	C.3
+	HE2	H
+	HE3	H
+	NZ	N.4
+	HZ1	H
+	HZ2	H
+	HZ3	H
+
+MET
+	CB	C.3
+	HB2	H
+	HB3	H
+	CG	C.3
+	HG2	H
+	HG3	H
+	SD	S.3
+	CE	C.3
+	HE1	H
+	HE2	H
+	HE3	H
+
+PHE
+	CB	C.3
+	HB2	H
+	HB3	H
+	CG	C.ar
+	CD1	C.ar
+	HD1	H
+	CE1	C.ar
+	HE1	H
+	CZ	C.ar
+	HZ	H
+	CE2	C.ar
+	HE2	H
+	CD2	C.ar
+	HD2	H
+	
+PRO
+	CB	???
+	HB2	???
+	HB3	???
+	CG	???
+	HG2	???
+	HG3	???
+	CD	???
+	HD2	???
+	HD3	???
+
+SER
+	CB	C.3
+	HB2	H
+	HB3	H
+	OG	???
+	HG	???
+
+THR
+	CB	C.3
+	HB	H
+	CG2	C.3
+	HG21	H
+	HG22	H
+	HG23	H
+	OG1	O.3
+	HG1	H
+
+TRP
+	CB	C.3
+	HB2	H
+	HB3	H
+	CG	???
+	CD1	???
+	HD1	???
+	NE1	???
+	HE1	???
+	CE2	???
+	CD2	???
+	CE3	???
+	HE3	???
+	CZ3	???
+	HZ3	???
+	CH2	???
+	HH2	???
+	CZ2	???
+	HZ2	???
+
+TYR
+	CB	C.3
+	HB2	H
+	HB3	H
+	CG	C.ar
+	CD1	C.ar
+	HD1	H
+	CE1	C.ar
+	HE1	H
+	CZ	C.3
+	OH	O.3
+	HH	H
+	CE2	C.ar
+	HE2	H
+	CD2	C.ar
+	HD2	H
+
+VAL
+	CB	???
+	HB	???
+	CG1	???
+	HG11	H
+	HG12	H
+	HG13	H
+	CG2	???
+	HG21	H
+	HG22	H
+	HG23	H

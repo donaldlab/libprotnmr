@@ -1,0 +1,27 @@
+
+NTerminus
+	N	H1	1
+	N	H2	1
+	N	H3	1
+	CA	N	1
+	CA	HA	1
+	CA	C	1
+	C	O	2
+	C	+N	1
+
+NonTerminal
+	N	H	1
+	CA	N	1
+	CA	HA	1
+	CA	C	1
+	C	O	2
+	C	+N	1
+
+CTerminus
+	N	H	1
+	CA	N	1
+	CA	HA	1
+	CA	C	1
+	C	O	2
+	C	OXT	1
+

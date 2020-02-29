@@ -1,0 +1,163 @@
+
+"""
+Jeff Martin
+10/23/2009
+
+Minimizes a protein structure using cartesian minimization
+subject to RDC and distance restraints
+Also reports VDW energy
+
+could add torsion angle minimization too if desired
+
+Sadly, the minimization process appears to be non-deterministic
+(even if I set a random seed!)
+
+Adapted from xplor-nih's annealing script for GB1
+	$XPLORHOME/eginput/gb1_rdc/anneal.py
+	
+$vars are automatically replaced by java code
+"""
+
+import protocol
+import varTensorTools
+import rdcPotTools
+import noePotTools
+from xplorSimulation import getXplorSimulation
+from xplorPot import XplorPot
+from potList import PotList
+from ivm import IVM
+from pdbTool import PDBTool
+from atomSel import AtomSel
+from mat3 import SymMat3
+
+
+# INPUTS
+pdbInPath = $PdbInPath
+pdbOutPath = $PdbOutPath
+useNoes = $UseNoes
+useRdcs = $UseRdcs
+noesPath = $NoesPath
+rdcsPath = $RdcsPath
+saupeMatrix = $SaupeMatrix
+numStepsCartesianMinimization = $NumSteps
+
+
+# SETTINGS
+rdcsPotentialScale = 1
+noesPotentialScale = 30
+fixBackbone = True
+printInterval = 100
+# UNDONE: add harmonic restraint options for backbone
+
+
+def initNBond():
+
+	xSim = getXplorSimulation( 0 )
+
+	# apply potential only to real atoms, not pseudoatoms
+	noSelStr = "pseudo"
+	selStr = "known"
+	xSim.command("""
+		constraints
+			interaction (%s and (not (%s))) (%s and (not (%s))) weights * 1 vdw 1 end 
+			interaction  (not (%s) and (not (%s))) (not (%s)) weights * 1 vdw 0 end 
+		end
+	""" % (selStr,noSelStr,selStr,noSelStr,selStr,noSelStr,noSelStr) )
+
+	# reset settings to their defaults
+	# described at: http://nmr.cit.nih.gov/xplor-nih/xplorMan/node50.html#957
+	
+	xSim.command("""
+		parameters
+			nbonds
+				atom
+				nbxmod 5
+				wmin = 1.5  ! warning off
+				cutnb = 8.5
+				tolerance = 0.5
+				repel = 0
+				rexp = 2
+				irex = 2
+				rcon = 100.0
+			end
+		end
+	""")
+
+
+# read in the pdb
+protocol.loadPDB( pdbInPath )
+backboneAtoms = AtomSel( "name N or name CA or name C or name O" )
+print "Loaded protein from:\n\t%s" % pdbInPath
+
+# build the energy function
+potentials = PotList()
+tensors = []
+
+# add rdcs potential if needed
+if useRdcs:
+	tensor = varTensorTools.saupeToVarTensor( saupeMatrix )
+	tensors.append( tensor )
+	rdcsPotential = rdcPotTools.create_RDCPot( "RDCs", rdcsPath, tensor )
+	rdcsPotential.setScale( rdcsPotentialScale )
+	potentials.append( rdcsPotential )
+	
+	# fix our tensor parameters
+	for tensor in tensors:
+		 tensor.setFreedom( "fixDa, fixRh" )
+
+# add noes potential if needed
+if useNoes:
+	noesPotential = noePotTools.create_NOEPot( "NOEs", noesPath )
+	print "Loaded %d distance restraints" % noesPotential.numRestraints()
+	#distancePotential.setPotType( "soft" ) # if you think there may be bad restraints
+	noesPotential.setScale( noesPotentialScale )
+	potentials.append( noesPotential )
+
+# add van der Waals potential
+vdwPotential = XplorPot( "VDW" )
+potentials.append( vdwPotential )
+initNBond()
+
+# NOTE: if we notice ridiculous energy values, we might be able to fix it
+# The standard L-J potential can give some steep gradients
+# Doing some cycles of purely repulsive potential can ease the severe clashes
+# before we go on to full L-J computation
+
+# add other simple potentials
+potentials.append( XplorPot( "BOND" ) )
+anglePotential = XplorPot( "ANGL" )
+anglePotential.setThreshold( 5 )
+potentials.append( anglePotential )
+improperPotential = XplorPot( "IMPR" )
+improperPotential.setThreshold( 5 )
+potentials.append( improperPotential )
+
+# set up cartesian minimization
+cartesianIvm = IVM()
+protocol.initMinimize(
+	cartesianIvm,
+	potList=potentials,
+	numSteps=numStepsCartesianMinimization,
+	printInterval=printInterval
+)
+protocol.cartesianTopology( cartesianIvm )
+
+# fix the backbone atoms if needed
+if fixBackbone:
+	cartesianIvm.fix( backboneAtoms )
+	print "\tFixed backbone!"
+
+# run the minimization
+print "Running cartesian minimization..."
+cartesianIvm.run()
+
+# analyze the resulting structure
+vdwEnergy = vdwPotential.calcEnergy()
+print "van der Waals energy: %f" % vdwEnergy
+
+# write the pdb file
+pdbWriter = PDBTool( pdbOutPath )
+pdbWriter.addRemarks( "VDW: %f" % vdwEnergy )
+pdbWriter.setMakeBackup( False )
+pdbWriter.write()
+print "Wrote protein to:\n\t%s" % pdbOutPath

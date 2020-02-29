@@ -1,0 +1,78 @@
+
+# pseodoatom corrections based on Wutrich's 1983 paper
+# http://dx.doi.org/10.1016/S0022-2836(83)80144-2
+# updated with new corrections for methyl groups based on info from:
+# chem 991 lecture at University of Nebraska-Lincoln in 2009
+# bionmr.unl.edu/courses/chem991/lectures/Struct-Software.ppt
+# NOTE: probably not the most reliable source... I should try to find the paper
+
+ALA
+	mb:hb1,hb2,hb3:1.5:hb#
+ASP
+	qb:hb2,hb3:1.0:hb#
+ASN
+	qb:hb2,hb3:1.0:hb#
+	qd:hd21,hd22:1.0:hd2#,hd#
+ARG
+	qb:hb2,hb3:1.0:hb#
+	qg:hg2,hg3:1.0:hg#
+	qd:hd2,hd3:1.0:hd#
+	qh1:hh11,hh12:1.0:hh1#
+	qh2:hh21,hh22:1.0:hh2#
+	qh:hh11,hh12,hh21,hh22:2.4:hh#
+CYS
+	qb:hb2,hb3:1.0:hb#
+GLN
+	qb:hb2,hb3:1.0:hb#
+	qg:hg2,hg3:1.0:hg#
+	qe:he21,he22:1.0:he2#,he#
+GLU
+	qb:hb2,hb3:1.0:hb#
+	qg:hg2,hg3:1.0:hg#
+GLY
+	qa:ha2,ha3:1.0:ha#
+HIS
+	qb:hb2,hb3:1.0:hb#
+ILE
+	mg:hg21,hg22,hg23:1.5:hg2#
+	md:hd11,hd12,hd13:1.5:hd1#,hd#
+	qg:hg12,hg13:1.0:hg1#
+LEU
+	qb:hb2,hb3:1.0:hb#
+	md1:hd11,hd12,hd13:1.5:hd1#
+	md2:hd21,hd22,hd23:1.5:hd2#
+	qd:hd11,hd12,hd13,hd21,hd22,hd23:2.4:hd#
+LYS
+	qb:hb2,hb3:1.0:hb#
+	qg:hg2,hg3:1.0:hg#
+	qd:hd2,hd3:1.0:hd#
+	qe:he2,he3:1.0:he#
+	qz:hz1,hz2,hz3:1.5:h2#
+MET
+	qb:hb2,hb3:1.0:hb#
+	qg:hg2,hg3:1.0:hg#
+	me:he1,he2,he3:1.5:he#
+PHE
+	qb:hb2,hb3:1.0:hb#
+	qd:hd1,hd2:2.0:hd#
+	qe:he1,he2:2.0:he#
+	qr:cg,cd1,cd2,ce1,ce2,cz:2.4
+PRO
+	qb:hb2,hb3:1.0:hb#
+	qg:hg2,hg2:1.0:hg#
+	qd:hd2,hd3:1.0:hd#
+SER
+	qb:hb2,hb3:1.0:hb#
+THR
+	mg:hg21,hg22,hg23:1.5:hg2#
+TRP
+	qb:hb2,hb3:1.0:hb#
+TYR
+	qb:hb2,hb3:1.0:hb#
+	qd:hd1,hd2:2.0:hd#
+	qe:he1,he2:2.0:he#
+	qr:cg,cd1,cd2,ce1,ce2,cz:2.4
+VAL
+	mg1:hg11,hg12,hg13:1.5:hg1#
+	mg2:hg21,hg22,hg23:1.5:hg2#
+	qg:hg11,hg12,hg13,hg21,hg22,hg23:2.4:hg#

@@ -1,0 +1,64 @@
+
+"""
+Jeff Martin
+10/23/2009
+
+Computes the van der Waals energy of a protein using the same
+potential settings as the minimize.py script
+
+$vars are automatically replaced by java code
+"""
+
+import protocol
+from xplorSimulation import getXplorSimulation
+from xplorPot import XplorPot
+
+
+# INPUTS
+pdbInPath = $pdbInPath
+
+
+def initNBond():
+
+	xSim = getXplorSimulation( 0 )
+
+	# apply potential only to real atoms, not pseudoatoms
+	noSelStr = "pseudo"
+	selStr = "known"
+	xSim.command("""
+		constraints
+			interaction (%s and (not (%s))) (%s and (not (%s))) weights * 1 vdw 1 end 
+			interaction  (not (%s) and (not (%s))) (not (%s)) weights * 1 vdw 0 end 
+		end
+	""" % (selStr,noSelStr,selStr,noSelStr,selStr,noSelStr,noSelStr) )
+
+	# reset settings to their defaults
+	# described at: http://nmr.cit.nih.gov/xplor-nih/xplorMan/node50.html#957
+	
+	xSim.command("""
+		parameters
+			nbonds
+				atom
+				nbxmod 5
+				wmin = 1.5  ! warning off
+				cutnb = 8.5
+				tolerance = 0.5
+				repel = 0
+				rexp = 2
+				irex = 2
+				rcon = 100.0
+			end
+		end
+	""")
+
+
+# read in the pdb
+protocol.loadPDB( pdbInPath )
+print "Loaded protein from:\n\t%s" % pdbInPath
+
+# add van der Waals potential
+vdwPotential = XplorPot( "VDW" )
+initNBond()
+
+# calculate energy
+print "van der Waals energy: %f" % vdwPotential.calcEnergy()
