@@ -1,6 +1,8 @@
 
 plugins {
 	java
+	// https://github.com/Minecrell/licenser
+	id("net.minecrell.licenser") version "0.4.1"
 }
 
 group = "edu.duke.cs"
@@ -32,4 +34,11 @@ dependencies {
 	implementation("batik:batik-svggen:1.6-1")
 	implementation("batik:batik-util:1.6-1")
 	implementation("xerces:xercesImpl:2.12.0")
+}
+
+license {
+
+	include("**/*.java")
+
+	header = file("license.header.txt")
 }
