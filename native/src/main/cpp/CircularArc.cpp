@@ -40,8 +40,8 @@ JNIEXPORT void JNICALL CircularArc3_init( JNIEnv *jvm, jobject self, jobject sup
 		Circle_3 *pCircle = getCircle( jvm, supportingCircle );
 		g_circularArcs.add( jvm, self, new Circular_arc_3(
 			*pCircle,
-			Point_3( getVectorX( jvm, source ), getVectorY( jvm, source ), getVectorZ( jvm, source ) ),
-			Point_3( getVectorX( jvm, target ), getVectorY( jvm, target ), getVectorZ( jvm, target ) )
+			Point_3( getVector3X( jvm, source ), getVector3Y( jvm, source ), getVector3Z( jvm, source ) ),
+			Point_3( getVector3X( jvm, target ), getVector3Y( jvm, target ), getVector3Z( jvm, target ) )
 		) );
 	}
 	STOP_SIGNAL_HANDLING

@@ -29,7 +29,7 @@ library {
 		if (this is ComponentWithSharedLibrary) {
 			linkTask.get().apply {
 
-				linkerArgs.addAll("-lCGAL", "-lgmp")
+				linkerArgs.addAll("-lCGAL", "-lCGAL_Core", "-lgmp", "-lmpfr")
 			}
 		}
 	}
@@ -41,12 +41,16 @@ tasks {
 		group = "build"
 		doLast {
 			exec {
+				val pkg = "edu.duke.cs.libprotnmr"
 				commandLine("javah",
 					"-cp", "../build/classes/java/main",
 					"-o", "src/main/cpp/native.h",
-					"edu.duke.cs.libprotnmr.cgal.spherical.SphericalCgal",
-					"edu.duke.cs.libprotnmr.cgal.spherical.Circle3",
-					"edu.duke.cs.libprotnmr.cgal.spherical.CircularArc3"
+					"$pkg.cgal.spherical.SphericalCgal",
+					"$pkg.cgal.spherical.Circle3",
+					"$pkg.cgal.spherical.CircularArc3",
+					"$pkg.cgal.curves.CurvesCgal",
+					"$pkg.cgal.curves.Intersector",
+					"$pkg.cgal.curves.EllipticalCurve"
 				)
 			}
 		}

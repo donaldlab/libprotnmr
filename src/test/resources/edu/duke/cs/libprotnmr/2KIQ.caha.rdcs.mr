@@ -1,0 +1,401 @@
+
+! rdc has been scaled to NH rdc
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 4    and name CA  )
+       ( resid 4    and name HA  )   -0.64   0.18
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 5    and name CA  )
+       ( resid 5    and name HA  )   -9.91   0.72
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 8    and name CA  )
+       ( resid 8    and name HA  )   -3.8   1.7
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 9    and name CA  )
+       ( resid 9    and name HA  )   -7.5   0.44
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 10    and name CA  )
+       ( resid 10    and name HA  )   17.54   0.48
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 11    and name CA  )
+       ( resid 11    and name HA  )   -3.92   0.57
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 12    and name CA  )
+       ( resid 12    and name HA  )   -9.54   0.91
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 13    and name CA  )
+       ( resid 13    and name HA  )   8.36   0.62
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 15    and name CA  )
+       ( resid 15    and name HA  )   1.25   0.77
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 16    and name CA  )
+       ( resid 16    and name HA  )   -13.36   1.02
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 17    and name CA  )
+       ( resid 17    and name HA  )   17.89   0.12
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 18    and name CA  )
+       ( resid 18    and name HA  )   -1.16   0.13
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 19    and name CA  )
+       ( resid 19    and name HA  )   4.36   0.47
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 20    and name CA  )
+       ( resid 20    and name HA  )   -2.85   0.9
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 21    and name CA  )
+       ( resid 21    and name HA  )   -9.0   0.24
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 23    and name CA  )
+       ( resid 23    and name HA  )   -6.21   0.67
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 24    and name CA  )
+       ( resid 24    and name HA  )   -3.16   0.37
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 25    and name CA  )
+       ( resid 25    and name HA  )   -8.72   0.38
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 26    and name CA  )
+       ( resid 26    and name HA  )   1.32   0.39
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 27    and name CA  )
+       ( resid 27    and name HA  )   5.4   0.53
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 28    and name CA  )
+       ( resid 28    and name HA  )   2.62   2.66
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 29    and name CA  )
+       ( resid 29    and name HA  )   -1.51   1.25
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 30    and name CA  )
+       ( resid 30    and name HA  )   -7.36   0.22
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 31    and name CA  )
+       ( resid 31    and name HA  )   0.51   0.53
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 32    and name CA  )
+       ( resid 32    and name HA  )   4.17   0.5
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 33    and name CA  )
+       ( resid 33    and name HA  )   -7.27   0.6
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 34    and name CA  )
+       ( resid 34    and name HA  )   7.41   0.25
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 35    and name CA  )
+       ( resid 35    and name HA  )   -12.55   0.51
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 36    and name CA  )
+       ( resid 36    and name HA  )   -4.77   0.71
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 39    and name CA  )
+       ( resid 39    and name HA  )   -14.77   1.13
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 40    and name CA  )
+       ( resid 40    and name HA  )   11.28   1.83
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 41    and name CA  )
+       ( resid 41    and name HA  )   11.19   0.67
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 42    and name CA  )
+       ( resid 42    and name HA  )   7.67   0.66
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 43    and name CA  )
+       ( resid 43    and name HA  )   -19.92   1.18
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 44    and name CA  )
+       ( resid 44    and name HA  )   -2.03   0.84
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 47    and name CA  )
+       ( resid 47    and name HA  )   -3.6   0.65
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 48    and name CA  )
+       ( resid 48    and name HA  )   11.32   0.12
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 49    and name CA  )
+       ( resid 49    and name HA  )   1.95   0.41
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 50    and name CA  )
+       ( resid 50    and name HA  )   -19.81   0.59
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 51    and name CA  )
+       ( resid 51    and name HA  )   20.15   0.45
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 52    and name CA  )
+       ( resid 52    and name HA  )   -4.68   1.26
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 53    and name CA  )
+       ( resid 53    and name HA  )   1.01   0.19
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 54    and name CA  )
+       ( resid 54    and name HA  )   -15.91   0.76
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 55    and name CA  )
+       ( resid 55    and name HA  )   19.35   0.87
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 56    and name CA  )
+       ( resid 56    and name HA  )   -5.08   0.36
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 57    and name CA  )
+       ( resid 57    and name HA  )   -6.81   0.67
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 58    and name CA  )
+       ( resid 58    and name HA  )   -0.19   0.35
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 59    and name CA  )
+       ( resid 59    and name HA  )   7.47   0.74
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 60    and name CA  )
+       ( resid 60    and name HA  )   1.82   0.59
+
+
+assign ( resid 600  and name OO  )
+       ( resid 600  and name Z   )
+       ( resid 600  and name X   )
+       ( resid 600  and name Y   )
+       ( resid 61    and name CA  )
+       ( resid 61    and name HA  )   -10.54   0.38
+

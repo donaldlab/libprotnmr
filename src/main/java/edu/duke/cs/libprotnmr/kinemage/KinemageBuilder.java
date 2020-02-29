@@ -50,6 +50,7 @@ import edu.duke.cs.libprotnmr.bond.Bond;
 import edu.duke.cs.libprotnmr.bond.BondGraph;
 import edu.duke.cs.libprotnmr.bond.BondGraphBuilder;
 import edu.duke.cs.libprotnmr.bond.BreadthFirstBondIterator;
+import edu.duke.cs.libprotnmr.cgal.curves.*;
 import edu.duke.cs.libprotnmr.geom.GeodesicGrid;
 import edu.duke.cs.libprotnmr.geom.Line3;
 import edu.duke.cs.libprotnmr.geom.Vector3;
@@ -1300,6 +1301,196 @@ public class KinemageBuilder
 		}
 		kin.getRoot().addNode( new Node( "@" + viewNum + "matrix" + buf.toString() ) );
 		kin.getRoot().addNode( new Node( "@" + viewNum + "zslab 1000" ) );
+	}
+
+	public static void appendCurve( Kinemage kin, Curve curve, String name, KinemageColor color, int width )
+	{
+		KinemageBuilder.appendChain( kin, curve.samplePoints(), true, name, color, width );
+	}
+
+	public static void appendCurve( Kinemage kin, Curve curve, boolean showMarker, String name, KinemageColor color, int width )
+	{
+		KinemageBuilder.appendChain( kin, curve.samplePoints(), true, showMarker, name, color, width );
+	}
+
+	public static void appendCurve( Kinemage kin, CurveArc arc, String name, KinemageColor color, int width )
+	{
+		KinemageBuilder.appendChain( kin, arc.samplePoints(), arc.isClosed(), name, color, width );
+	}
+
+	public static void appendCurve( Kinemage kin, CurveArc arc, boolean showMarker, String name, KinemageColor color, int width )
+	{
+		KinemageBuilder.appendChain( kin, arc.samplePoints(), arc.isClosed(), showMarker, name, color, width );
+	}
+
+	public static Group getCurve( CurveArc arc, boolean showMarker, String name, KinemageColor color, int width )
+	{
+		return KinemageBuilder.getChain( arc.samplePoints(), arc.isClosed(), showMarker, name, color, width );
+	}
+
+	public static void appendDashedCurve( Kinemage kin, Curve curve, String name, KinemageColor color, int width )
+	{
+		KinemageBuilder.appendDashedChain( kin, curve.samplePoints(), name, color, width );
+	}
+
+	public static void appendRdcBand( Kinemage kin, RdcBand band, String name, KinemageColor color, int width )
+	{
+		for (int i=0; i<RdcCurve.NumArcs; i++)
+		{
+			appendCurve( kin, band.getCurve( BandPart.Min, i ), name + " (min " + i + ")", color, width );
+			appendDashedCurve( kin, band.getCurve( BandPart.Mid, i ), name + " (mid " + i + ")", color, width );
+			appendCurve( kin, band.getCurve( BandPart.Max, i ), name + " (max " + i + ")", color, width );
+		}
+	}
+
+	public static void appendKinematicBand( Kinemage kin, KinematicBand band, String name, KinemageColor color, int width )
+	{
+		appendCurve( kin, band.getCurve( BandPart.Min ), name + " (min)", color, width );
+		appendDashedCurve( kin, band.getCurve( BandPart.Mid ), name + " (mid)", color, width );
+		appendCurve( kin, band.getCurve( BandPart.Max ), name + " (max)", color, width );
+		KinemageBuilder.appendVector( kin, band.getAxis(), name + " (axis)", color, width, 1.0 );
+	}
+
+	/*
+	public static void appendArrangement( Kinemage kin, Arrangement arrangement, String name, KinemageColor color, int size )
+	{
+		// add the group
+		Group group = new Group( name );
+		group.addOption( "dominant" );
+		kin.getRoot().addNode( group );
+
+		String widthOption = "width= " + Integer.toString( size );
+
+		// add the arcs
+		for( CurveArc arc : arrangement.edges() )
+		{
+			List list = new List( "vector", name );
+			group.addNode( list );
+			list.addColor( color );
+			list.addOption( widthOption );
+
+			for( Vector3 point : arc.samplePoints() )
+			{
+				list.addNode( new Point( point ) );
+			}
+		}
+
+		// add the vertices
+		for( Vector3 v : arrangement.vertices() )
+		{
+
+		}
+	}
+	*/
+
+	public static void appendDetailedArrangement( Kinemage kin, Arrangement arrangement, String name, KinemageColor color, int size )
+	{
+		for( Edge edge : arrangement.getEdgesInBfsOrder() )
+		{
+			appendCurve( kin, edge.getArc(), name + " edge", color, size );
+		}
+		ArrayList<Vector3> points = new ArrayList<Vector3>();
+		for( Vertex vertex : arrangement.vertices() )
+		{
+			points.add( vertex.getPoint() );
+		}
+		KinemageBuilder.appendPoints( kin, points, name + " vertices", color, 7 );
+	}
+
+	public static void appendArrangementIncidentEdges( Kinemage kin, Arrangement arrangement, String name, KinemageColor color )
+	{
+		for( Vertex vertex : arrangement.vertices() )
+		{
+			KinemageBuilder.appendPoints( kin, Arrays.asList( vertex.getPoint() ), "Arrangement Vertex", color, 7 );
+			for( Edge edge : vertex.getIncidentEdges() )
+			{
+				appendCurve( kin, edge.getArc(), "Arrangement Edge", color, 1 );
+			}
+		}
+	}
+
+	public static void appendArrangementFaces( Kinemage kin, Iterable<Face> faces, String name, KinemageColor color )
+	{
+		for( Face face : faces )
+		{
+			// add the group
+			Group group = new Group( name );
+			group.addOption( "dominant" );
+			kin.getRoot().addNode( group );
+
+			// add the edges
+			for( Halfedge halfedge : face.boundary() )
+			{
+				List list = new List( "vector", name );
+				group.addNode( list );
+				list.addColor( color );
+				list.addOption( "width= " + Integer.toString( 2 ) );
+				for( Vector3 v : halfedge.getEdge().getArc().samplePoints() )
+				{
+					list.addNode( new Point( v ) );
+				}
+			}
+
+			// add the vertices
+			List list = new List( "dot", "source" );
+			group.addNode( list );
+			for( Vertex v : face.vertices() )
+			{
+				Point point = new Point( "dot", v.getPoint() );
+				point.addColor( color );
+				list.addOption( "width= " + Integer.toString( 7 ) );
+				list.addNode( point );
+			}
+		}
+	}
+
+	public static void appendBoundary( Kinemage kin, Iterable<Halfedge> boundary, String name, KinemageColor color, int size )
+	{
+		appendBoundary( kin, boundary, name, color, size, true );
+	}
+
+	public static void appendBoundary( Kinemage kin, Iterable<Halfedge> boundary, String name, KinemageColor color, int size, boolean showMarkers )
+	{
+		// add the group
+		Group group = new Group( name );
+		group.addOption( "dominant" );
+		kin.getRoot().addNode( group );
+
+		List vertices = new List( "dot", "source" );
+		group.addNode( vertices );
+
+		// add the edges and vertices
+		for( Halfedge halfedge : boundary )
+		{
+			// sample the halfedge
+			java.util.List<Vector3> samples = halfedge.samplePoints();
+
+			List edge = new List( "vector", name );
+			group.addNode( edge );
+			edge.addColor( color );
+			edge.addOption( "width= " + Integer.toString( size ) );
+			for( Vector3 v : samples )
+			{
+				edge.addNode( new Point( v ) );
+			}
+
+			if( showMarkers )
+			{
+				// add the vertex
+				Point point = new Point( "dot", halfedge.getSource().getPoint() );
+				point.addColor( color );
+				vertices.addOption( "width= " + Integer.toString( 7 ) );
+				vertices.addNode( point );
+
+				// add the direction marker group
+				group.addNode( KinemageBuilder.getMarker( samples, name, color, size ) );
+			}
+		}
+	}
+
+	public static void appendHalfedge( Kinemage kin, Halfedge halfedge, String name, KinemageColor color, int size )
+	{
+		appendBoundary( kin, Arrays.asList( halfedge ), name, color, size );
 	}
 	
 	

@@ -38,9 +38,9 @@ JNIEXPORT void JNICALL Circle3_init( JNIEnv *jvm, jobject self, jobject a, jobje
 	START_SIGNAL_HANDLING
 	{
 		g_circles.add( jvm, self, new Circle_3(
-			Point_3( getVectorX( jvm, a ), getVectorY( jvm, a ), getVectorZ( jvm, a ) ),
-			Point_3( getVectorX( jvm, b ), getVectorY( jvm, b ), getVectorZ( jvm, b ) ),
-			Point_3( getVectorX( jvm, c ), getVectorY( jvm, c ), getVectorZ( jvm, c ) )
+			Point_3( getVector3X( jvm, a ), getVector3Y( jvm, a ), getVector3Z( jvm, a ) ),
+			Point_3( getVector3X( jvm, b ), getVector3Y( jvm, b ), getVector3Z( jvm, b ) ),
+			Point_3( getVector3X( jvm, c ), getVector3Y( jvm, c ), getVector3Z( jvm, c ) )
 		) );
 	}
 	STOP_SIGNAL_HANDLING

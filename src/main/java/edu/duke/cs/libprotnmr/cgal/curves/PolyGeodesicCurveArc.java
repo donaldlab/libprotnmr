@@ -1,0 +1,106 @@
+package edu.duke.cs.libprotnmr.cgal.curves;
+
+import edu.duke.cs.libprotnmr.geom.Vector3;
+
+import java.util.List;
+
+public class PolyGeodesicCurveArc extends PolyGeodesicCurve implements CurveArc
+{
+	public PolyGeodesicCurveArc( List<Vector3> vertices )
+	{
+		super( vertices );
+	}
+	
+	@Override
+	public Curve getCurve( )
+	{
+		return this;
+	}
+	
+	@Override
+	public boolean isClosed( )
+	{
+		return false;
+	}
+	
+	@Override
+	public Vector3 getSource( )
+	{
+		return getVertices().get( 0 );
+	}
+
+	@Override
+	public Vector3 getTarget( )
+	{
+		return getVertices().get( getVertices().size() - 1 );
+	}
+
+	@Override
+	public Vector3 getMidpoint( )
+	{
+		return getVertices().get( getVertices().size()/2 );
+	}
+
+	@Override
+	public Vector3 getOtherEndpoint( Vector3 p )
+	{
+		if( p == getSource() )
+		{
+			return getTarget();
+		}
+		else if( p == getTarget() )
+		{
+			return getSource();
+		}
+		throw new IllegalArgumentException( "point is not an endpoint!" );
+	}
+
+	@Override
+	public Vector3 getOtherEndpoint( Vector3 p, double epsilon )
+	{
+		if( p.approximatelyEquals( getSource(), epsilon ) )
+		{
+			return getTarget();
+		}
+		else if( p.approximatelyEquals( getTarget(), epsilon ) )
+		{
+			return getSource();
+		}
+		throw new IllegalArgumentException( "point is not approximately an endpoint!" );
+	}
+
+	@Override
+	public boolean containsPointOnBoundary( Vector3 p )
+	{
+		// UNDONE: lazy programmer
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public boolean containsPointOnBoundary( Vector3 p, double epsilon )
+	{
+		// UNDONE: lazy programmer
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public boolean containsPointInInterior( Vector3 p )
+	{
+		// UNDONE: lazy programmer
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public boolean containsPointInInterior( Vector3 p, double epsilon )
+	{
+		// UNDONE: lazy programmer
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public double getApproximateLength( int numSamples )
+	{
+		// UNDONE: lazy programmer
+		throw new UnsupportedOperationException();
+	}
+}

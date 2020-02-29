@@ -30,8 +30,15 @@ void setId( JNIEnv *jvm, jobject self, int id );
 void *getPointer( JNIEnv *jvm, jobject self );
 void setPointer( JNIEnv *jvm, jobject self, void *p );
 jobject newVector3( JNIEnv *jvm, double x, double y, double z );
-double getVectorX( JNIEnv *jvm, jobject vector );
-double getVectorY( JNIEnv *jvm, jobject vector );
-double getVectorZ( JNIEnv *jvm, jobject vector );
+double getVector3X( JNIEnv *jvm, jobject vector );
+double getVector3Y( JNIEnv *jvm, jobject vector );
+double getVector3Z( JNIEnv *jvm, jobject vector );
+jobject newVector2( JNIEnv *jvm, double x, double y );
+double getVector2X( JNIEnv *jvm, jobject vector );
+double getVector2Y( JNIEnv *jvm, jobject vector );
+void addVector2ToList( JNIEnv *jvm, jobject out, double x, double y );
+void addVector3ToList( JNIEnv *jvm, jobject out, double x, double y, double z );
+jobject newDouble( JNIEnv *jvm, double x );
+void addDoubleToList( JNIEnv *jvm, jobject out, double x );
 
 #endif /* GLOBAL_H_ */

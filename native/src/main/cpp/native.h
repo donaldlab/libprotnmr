@@ -121,3 +121,174 @@ JNIEXPORT void JNICALL Java_edu_duke_cs_libprotnmr_cgal_spherical_CircularArc3_i
 }
 #endif
 #endif
+/* Header for class edu_duke_cs_libprotnmr_cgal_curves_CurvesCgal */
+
+#ifndef _Included_edu_duke_cs_libprotnmr_cgal_curves_CurvesCgal
+#define _Included_edu_duke_cs_libprotnmr_cgal_curves_CurvesCgal
+#ifdef __cplusplus
+extern "C" {
+#endif
+/*
+ * Class:     edu_duke_cs_libprotnmr_cgal_curves_CurvesCgal
+ * Method:    nativeCleanup
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_edu_duke_cs_libprotnmr_cgal_curves_CurvesCgal_nativeCleanup
+  (JNIEnv *, jclass);
+
+#ifdef __cplusplus
+}
+#endif
+#endif
+/* Header for class edu_duke_cs_libprotnmr_cgal_curves_Intersector */
+
+#ifndef _Included_edu_duke_cs_libprotnmr_cgal_curves_Intersector
+#define _Included_edu_duke_cs_libprotnmr_cgal_curves_Intersector
+#ifdef __cplusplus
+extern "C" {
+#endif
+/*
+ * Class:     edu_duke_cs_libprotnmr_cgal_curves_Intersector
+ * Method:    intersectRdcCircularPoF
+ * Signature: (Ljava/util/List;DDDDDDDDDDDDDDD)V
+ */
+JNIEXPORT void JNICALL Java_edu_duke_cs_libprotnmr_cgal_curves_Intersector_intersectRdcCircularPoF
+  (JNIEnv *, jclass, jobject, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble);
+
+/*
+ * Class:     edu_duke_cs_libprotnmr_cgal_curves_Intersector
+ * Method:    intersectRdcGeodesicPoF
+ * Signature: (Ljava/util/List;DDDDDDDDDDDDD)V
+ */
+JNIEXPORT void JNICALL Java_edu_duke_cs_libprotnmr_cgal_curves_Intersector_intersectRdcGeodesicPoF
+  (JNIEnv *, jclass, jobject, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble);
+
+/*
+ * Class:     edu_duke_cs_libprotnmr_cgal_curves_Intersector
+ * Method:    intersectRdcRdc
+ * Signature: (Ljava/util/List;DDDDDDDDDDDDDDDDD)V
+ */
+JNIEXPORT void JNICALL Java_edu_duke_cs_libprotnmr_cgal_curves_Intersector_intersectRdcRdc
+  (JNIEnv *, jclass, jobject, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble);
+
+/*
+ * Class:     edu_duke_cs_libprotnmr_cgal_curves_Intersector
+ * Method:    intersectCircularCircular
+ * Signature: (Ljava/util/List;Ledu/duke/cs/libprotnmr/geom/Vector3;DLedu/duke/cs/libprotnmr/geom/Vector3;D)V
+ */
+JNIEXPORT void JNICALL Java_edu_duke_cs_libprotnmr_cgal_curves_Intersector_intersectCircularCircular
+  (JNIEnv *, jclass, jobject, jobject, jdouble, jobject, jdouble);
+
+/*
+ * Class:     edu_duke_cs_libprotnmr_cgal_curves_Intersector
+ * Method:    intersectEllipticalCircular
+ * Signature: (Ljava/util/List;DDDDDDDDD)V
+ */
+JNIEXPORT void JNICALL Java_edu_duke_cs_libprotnmr_cgal_curves_Intersector_intersectEllipticalCircular
+  (JNIEnv *, jclass, jobject, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble);
+
+/*
+ * Class:     edu_duke_cs_libprotnmr_cgal_curves_Intersector
+ * Method:    intersectEllipticalElliptical
+ * Signature: (Ljava/util/List;DDDDDDDDDDDDDDDD)V
+ */
+JNIEXPORT void JNICALL Java_edu_duke_cs_libprotnmr_cgal_curves_Intersector_intersectEllipticalElliptical
+  (JNIEnv *, jclass, jobject, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble);
+
+/*
+ * Class:     edu_duke_cs_libprotnmr_cgal_curves_Intersector
+ * Method:    intersectRdcEllipticalConePof
+ * Signature: (Ljava/util/List;DDDDDDDDDDDDDDDDDD)V
+ */
+JNIEXPORT void JNICALL Java_edu_duke_cs_libprotnmr_cgal_curves_Intersector_intersectRdcEllipticalConePof
+  (JNIEnv *, jclass, jobject, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble);
+
+/*
+ * Class:     edu_duke_cs_libprotnmr_cgal_curves_Intersector
+ * Method:    sampleRotatedRdcCurve
+ * Signature: (Ljava/util/List;DDDDDDDDDDDDD)V
+ */
+JNIEXPORT void JNICALL Java_edu_duke_cs_libprotnmr_cgal_curves_Intersector_sampleRotatedRdcCurve
+  (JNIEnv *, jclass, jobject, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble);
+
+/*
+ * Class:     edu_duke_cs_libprotnmr_cgal_curves_Intersector
+ * Method:    getRdcCurveDihedralIntersectionPoints
+ * Signature: (Ljava/util/List;DDDDDDDDDDDDDD)V
+ */
+JNIEXPORT void JNICALL Java_edu_duke_cs_libprotnmr_cgal_curves_Intersector_getRdcCurveDihedralIntersectionPoints
+  (JNIEnv *, jclass, jobject, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble);
+
+/*
+ * Class:     edu_duke_cs_libprotnmr_cgal_curves_Intersector
+ * Method:    getHyperbolaUnitCircleIntersectionPoints
+ * Signature: (Ljava/util/List;DDDD)V
+ */
+JNIEXPORT void JNICALL Java_edu_duke_cs_libprotnmr_cgal_curves_Intersector_getHyperbolaUnitCircleIntersectionPoints
+  (JNIEnv *, jclass, jobject, jdouble, jdouble, jdouble, jdouble);
+
+/*
+ * Class:     edu_duke_cs_libprotnmr_cgal_curves_Intersector
+ * Method:    getParabolaUnitCircleIntersectionPoints
+ * Signature: (Ljava/util/List;DDD)V
+ */
+JNIEXPORT void JNICALL Java_edu_duke_cs_libprotnmr_cgal_curves_Intersector_getParabolaUnitCircleIntersectionPoints
+  (JNIEnv *, jclass, jobject, jdouble, jdouble, jdouble);
+
+/*
+ * Class:     edu_duke_cs_libprotnmr_cgal_curves_Intersector
+ * Method:    getEllipseOptima
+ * Signature: (Ljava/util/List;DDDDDDDDDDDDDDD)V
+ */
+JNIEXPORT void JNICALL Java_edu_duke_cs_libprotnmr_cgal_curves_Intersector_getEllipseOptima
+  (JNIEnv *, jclass, jobject, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble);
+
+#ifdef __cplusplus
+}
+#endif
+#endif
+/* Header for class edu_duke_cs_libprotnmr_cgal_curves_Intersector_Conservativity */
+
+#ifndef _Included_edu_duke_cs_libprotnmr_cgal_curves_Intersector_Conservativity
+#define _Included_edu_duke_cs_libprotnmr_cgal_curves_Intersector_Conservativity
+#ifdef __cplusplus
+extern "C" {
+#endif
+#ifdef __cplusplus
+}
+#endif
+#endif
+/* Header for class edu_duke_cs_libprotnmr_cgal_curves_EllipticalCurve */
+
+#ifndef _Included_edu_duke_cs_libprotnmr_cgal_curves_EllipticalCurve
+#define _Included_edu_duke_cs_libprotnmr_cgal_curves_EllipticalCurve
+#ifdef __cplusplus
+extern "C" {
+#endif
+#undef edu_duke_cs_libprotnmr_cgal_curves_EllipticalCurve_serialVersionUID
+#define edu_duke_cs_libprotnmr_cgal_curves_EllipticalCurve_serialVersionUID -2025117421537308183LL
+#undef edu_duke_cs_libprotnmr_cgal_curves_EllipticalCurve_serialVersionUID
+#define edu_duke_cs_libprotnmr_cgal_curves_EllipticalCurve_serialVersionUID -3524464981347312914LL
+/*
+ * Class:     edu_duke_cs_libprotnmr_cgal_curves_EllipticalCurve
+ * Method:    getTangentQueryIntersectionPoints
+ * Signature: (Ljava/util/List;DDDDDDDD)V
+ */
+JNIEXPORT void JNICALL Java_edu_duke_cs_libprotnmr_cgal_curves_EllipticalCurve_getTangentQueryIntersectionPoints
+  (JNIEnv *, jclass, jobject, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble, jdouble);
+
+#ifdef __cplusplus
+}
+#endif
+#endif
+/* Header for class edu_duke_cs_libprotnmr_cgal_curves_EllipticalCurve_Mode */
+
+#ifndef _Included_edu_duke_cs_libprotnmr_cgal_curves_EllipticalCurve_Mode
+#define _Included_edu_duke_cs_libprotnmr_cgal_curves_EllipticalCurve_Mode
+#ifdef __cplusplus
+extern "C" {
+#endif
+#ifdef __cplusplus
+}
+#endif
+#endif

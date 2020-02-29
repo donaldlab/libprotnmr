@@ -1,5 +1,7 @@
 package edu.duke.cs.libprotnmr.resources;
 
+import java.io.InputStream;
+
 public class Resources
 {
 	private static String m_resourcePath;
@@ -23,5 +25,9 @@ public class Resources
 		// to my infinite sadness, parent directory references don't work in a jar classLoader!! ;_;
 		// so we have to build absolute paths for all our resources
 		return m_resourcePath + path;
+	}
+
+	public static InputStream get(String path) {
+		return Resources.class.getResourceAsStream(getPath(path));
 	}
 }
