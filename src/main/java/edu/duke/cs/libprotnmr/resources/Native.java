@@ -26,43 +26,37 @@
 
 package edu.duke.cs.libprotnmr.resources;
 
-import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.NoSuchElementException;
 
 
 public class Native {
 
 	static {
 
-		String libName = "native";
-		File libFile = new File("native/build/lib/main/debug/lib" + libName + ".so");
+		try {
 
-		// first, try to load the library from the current directory
-		if (libFile.exists()) {
-
-			try {
-				System.load(libFile.getAbsolutePath());
-			} catch (UnsatisfiedLinkError err) {
-				String message =
-					"Unable to load required library!"
-						+ " Library found at path:"
-						+ "\n" + libFile.getAbsolutePath()
-						+ "\nbut loading failed. If running on linux, make sure CGAL package is installed.";
-				throw new Error(message, err);
+			// unpack the library from the resources path and write it to a temp dir
+			String name = "libnative.so";
+			Path tmp = Paths.get("/tmp/libprotnmr");
+			Files.createDirectories(tmp);
+			Path path = tmp.resolve(name);
+			try (InputStream in = Resources.get("lib/" + name)) {
+				if (in == null) {
+					throw new NoSuchElementException("native library is missing from this build.");
+				}
+				Files.copy(in, path);
 			}
 
-		} else {
+			// then load the library
+			System.load(path.toAbsolutePath().toString());
 
-			try {
-				System.loadLibrary(libName);
-			} catch (UnsatisfiedLinkError err) {
-				String message =
-					"Unable to find required library!"
-						+ " These directories were checked:"
-						+ "\n" + System.getProperty( "java.library.path" )
-						+ "\nOr, try putting it here:"
-						+ "\n" + libFile.getAbsolutePath();
-				throw new Error(message, err);
-			}
+		} catch (IOException ex) {
+			throw new RuntimeException("can't unpack native library", ex);
 		}
 	}
 

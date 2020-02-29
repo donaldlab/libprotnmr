@@ -37,11 +37,15 @@ library {
 
 tasks {
 
+	val pkg = "edu.duke.cs.libprotnmr"
+	val pkgPath = pkg.replace('.', '/')
+
 	val javah by creating {
 		group = "build"
 		doLast {
+
+			// build the library
 			exec {
-				val pkg = "edu.duke.cs.libprotnmr"
 				commandLine("javah",
 					"-cp", "../build/classes/java/main",
 					"-o", "src/main/cpp/native.h",
@@ -52,6 +56,17 @@ tasks {
 					"$pkg.cgal.curves.Intersector",
 					"$pkg.cgal.curves.EllipticalCurve"
 				)
+			}
+		}
+	}
+
+	"assemble" {
+		doLast {
+
+			// copy the binary to the the resources dir
+			copy {
+				from("build/lib/main/debug/libnative.so")
+				into("../build/resources/main/$pkgPath/lib/")
 			}
 		}
 	}
